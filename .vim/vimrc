@@ -1,0 +1,73 @@
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set runtimepath=~/.vim,~/.vim/after,$VIM,$VIMRUNTIME
+set undodir=~/.vim/undo//
+set viminfo='100,<50,s10,h,n~/.vim/viminfo
+set tags=./tags,tags;
+
+
+colorscheme elflord
+
+set autoindent
+set autoread
+set background=dark
+set backspace=indent,eol,start
+set colorcolumn=101
+set expandtab
+set fileencodings=ucs-bom,utf-8,default,latin1
+set helplang=en
+set hidden
+set history=50
+set hlsearch
+set ignorecase
+set incsearch
+set nomodeline
+set number
+set printoptions=paper:letter
+set relativenumber
+set ruler
+set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos
+set shiftwidth=4     " indent also with 4 spaces
+set showmatch
+set smartcase
+set smarttab
+set softtabstop=4
+set splitright
+set switchbuf=usetab
+set tabstop=4
+set textwidth=100
+set window=62
+
+syntax on
+
+" in insert mode 'jk' will generate Escape
+imap jk <Esc>
+" in normal mode F2 will save the file
+nmap <F2> :w<CR>
+" in insert mode F2 will exit insert, save, enters insert again
+imap <F2> <ESC>:w<CR>i
+
+"" Directional split navigation
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-h> <c-w>h
+nmap <c-l> <c-w>l
+
+function TrimWhiteSpace()
+  let l:save = winsaveview()
+  :s/\s\+$//e
+  call winrestview(l:save)
+endfunction
+
+" This would automatically trim whitespace every time the buffer is written for specific file types
+" autocmd FileType c,python,text autocmd BufWritePre <buffer> :call TrimWhiteSpace()<CR>
+
+noremap <F12> :call TrimWhiteSpace()<CR>
+
+autocmd FileType gitcommit setlocal spell textwidth=72 colorcolumn=73
+autocmd BufNewFile,BufRead *.inc set filetype=sh
+
+" Use F2 to toggle paste mode on and off, with some visual feedback in normal mode
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
