@@ -5,28 +5,22 @@ set undodir=~/.vim/undo//
 set viminfo='100,<50,s10,h,n~/.vim/viminfo
 set tags=./tags,tags;
 
-
 colorscheme elflord
 
 set autoindent
-set autoread
 set background=dark
 set backspace=indent,eol,start
 set colorcolumn=101
 set expandtab
-set fileencodings=ucs-bom,utf-8,default,latin1
-set helplang=en
 set hidden
 set history=50
-set hlsearch
+set hlsearch " highlight all search matches
 set ignorecase
 set incsearch
 set nomodeline
 set number
-set printoptions=paper:letter
 set relativenumber
 set ruler
-set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,resize,winpos
 set shiftwidth=4     " indent also with 4 spaces
 set showmatch
 set smartcase
@@ -42,10 +36,6 @@ syntax on
 
 " in insert mode 'jk' will generate Escape
 imap jk <Esc>
-" in normal mode F2 will save the file
-nmap <F2> :w<CR>
-" in insert mode F2 will exit insert, save, enters insert again
-imap <F2> <ESC>:w<CR>i
 
 "" Directional split navigation
 nmap <c-j> <c-w>j
