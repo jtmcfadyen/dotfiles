@@ -1,7 +1,7 @@
 FPATH="$HOME/.zshcomp:$FPATH"
 HISTFILE=~/.histfile
 HISTSIZE=1000
-PROMPT="%m:%~%(?,,%F{red})%#%f "
+PROMPT='%F{153}%n%f@%F{153}%m%f %F{141}%1~%f %# '
 SAVEHIST=100000
 
 bindkey -e
