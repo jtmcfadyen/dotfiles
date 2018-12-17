@@ -31,4 +31,5 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+setxkbmap -option ctrl:nocaps       # Make Caps Lock a Control key
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

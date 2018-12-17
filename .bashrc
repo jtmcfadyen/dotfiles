@@ -115,4 +115,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+setxkbmap -option ctrl:nocaps       # Make Caps Lock a Control key
 alias config='/usr/bin/git --git-dir=/home/dev/.cfg/ --work-tree=/home/dev'
