@@ -5,41 +5,51 @@ set runtimepath=~/.vim,~/.vim/after,$VIM,$VIMRUNTIME
 set undodir=~/.vim/undo//
 set viminfo='100,<50,s10,h,n~/.vim/viminfo
 
-" General
-filetype plugin on
-set backspace=indent,eol,start
-set hidden
-set history=50
-set nocompatible " No need for legacy vi support
-set nomodeline
-set switchbuf=usetab
-set path+=** " Search down into subfolders, provides tab completion for files
-set wildmenu " Display all matching files with tab complete
-
-" Appearance, numbering, syntax
 colorscheme elflord
-set background=dark
-set colorcolumn=101
-set number
-set ruler
-set relativenumber
-set splitright
-set textwidth=100
 syntax on
 
-" Indentation, tab, and space behavior
+" Make backspace work properly on all systems
+" Alternative is to use 'set bs=2'
+set backspace=indent,eol,start
+
+" Allow opening new file when there are unsaved changes to buffer
+set hidden
+
+" No need for legacy vi support
+set nocompatible
+
+" Access files in all subfolders starting from current path
+" E.g. ':file utils.c' where utils.c is in a subdirectory
+set path+=**
+
+" Display all matching files with tab complete
+set wildmenu
+
+" Display line number, relative numbers, and ruler
+set number
+set relativenumber
+set ruler
+
+" Place cursor in new window after splitting with :vsp
+set splitright
+
+" Set up proper indentation, spaces, and text width
 set autoindent
 set expandtab
-set shiftwidth=4 " indent also with 4 spaces
+set shiftwidth=4
 set smarttab
 set softtabstop=4
 set tabstop=4
+set textwidth=100
 
-" Search
-set hlsearch " highlight all search matches
-set ignorecase " ignore case for searches
-set incsearch " start searching as you type
-set smartcase " case sensitive search when string contains uppercase char
+" Highlight all search matches
+set hlsearch
+" Start searching as you type
+set incsearch
+" Ignore case for searches
+set ignorecase
+" Case sensitive search when string contains uppercase char
+set smartcase 
 
 " in insert mode 'jk' will generate Escape
 imap jk <Esc>
