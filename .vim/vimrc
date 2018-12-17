@@ -1,38 +1,45 @@
+" Set important vim directories and file paths
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set runtimepath=~/.vim,~/.vim/after,$VIM,$VIMRUNTIME
 set undodir=~/.vim/undo//
 set viminfo='100,<50,s10,h,n~/.vim/viminfo
-set tags=./tags,tags;
 
-colorscheme elflord
-
-set autoindent
-set background=dark
+" General
+filetype plugin on
 set backspace=indent,eol,start
-set colorcolumn=101
-set expandtab
 set hidden
 set history=50
-set hlsearch " highlight all search matches
-set ignorecase
-set incsearch
+set nocompatible " No need for legacy vi support
 set nomodeline
+set switchbuf=usetab
+set path+=** " Search down into subfolders, provides tab completion for files
+set wildmenu " Display all matching files with tab complete
+
+" Appearance, numbering, syntax
+colorscheme elflord
+set background=dark
+set colorcolumn=101
 set number
-set relativenumber
 set ruler
-set shiftwidth=4     " indent also with 4 spaces
-set showmatch
-set smartcase
+set relativenumber
+set splitright
+set textwidth=100
+syntax on
+
+" Indentation, tab, and space behavior
+set autoindent
+set expandtab
+set shiftwidth=4 " indent also with 4 spaces
 set smarttab
 set softtabstop=4
-set splitright
-set switchbuf=usetab
 set tabstop=4
-set textwidth=100
-set window=62
 
-syntax on
+" Search
+set hlsearch " highlight all search matches
+set ignorecase " ignore case for searches
+set incsearch " start searching as you type
+set smartcase " case sensitive search when string contains uppercase char
 
 " in insert mode 'jk' will generate Escape
 imap jk <Esc>

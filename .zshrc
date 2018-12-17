@@ -31,4 +31,4 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias config='/usr/bin/git --git-dir=/home/dev/.cfg/ --work-tree=/home/dev'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
