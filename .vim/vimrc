@@ -4,9 +4,14 @@ set directory=~/.vim/swap//
 set runtimepath=~/.vim,~/.vim/after,$VIM,$VIMRUNTIME
 set undodir=~/.vim/undo//
 set viminfo='100,<50,s10,h,n~/.vim/viminfo
+set tags=tags;
 
 colorscheme elflord
 syntax on
+
+" Make working directory same as file
+" set autochdir can break some plugins
+autocmd BufEnter * silent! lcd %:p:h
 
 " Make backspace work properly on all systems
 " Alternative is to use 'set bs=2'
@@ -78,3 +83,20 @@ autocmd BufNewFile,BufRead *.inc set filetype=sh
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+
+" Plugin outside ~/.vim/plugged with post-update hook
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+
+" Initialize plugin system
+call plug#end()
