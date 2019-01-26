@@ -35,6 +35,8 @@ set number
 set relativenumber
 set ruler
 
+set laststatus=2
+
 " Place cursor in new window after splitting with :vsp
 set splitright
 
@@ -89,10 +91,12 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
+Plug 'vim-syntastic/syntastic'
+Plug 'majutsushi/tagbar'
 
 " Plugin outside ~/.vim/plugged with post-update hook
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -104,3 +108,5 @@ call plug#end()
 map ; :Files<CR>
 map " :Buffers<CR>
 
+" Toggle tagbar
+nmap <F8> :TagbarToggle<CR>
