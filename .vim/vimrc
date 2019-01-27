@@ -105,8 +105,8 @@ Plug 'majutsushi/tagbar'
 call plug#end()
 
 " For Fzf
-map ; :Files<CR>
-map " :Buffers<CR>
+map " :Files<CR>
+map ; :Buffers<CR>
 
 " Toggle tagbar
 nmap <F8> :TagbarToggle<CR>
