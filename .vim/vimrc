@@ -6,12 +6,9 @@ set undodir=~/.vim/undo//
 set viminfo='100,<50,s10,h,n~/.vim/viminfo
 set tags=tags;
 
-colorscheme elflord
-syntax on
-
 " Make working directory same as file
 " set autochdir can break some plugins
-autocmd BufEnter * silent! lcd %:p:h
+" autocmd BufEnter * silent! lcd %:p:h
 
 " Make backspace work properly on all systems
 " Alternative is to use 'set bs=2'
@@ -47,7 +44,7 @@ set shiftwidth=4
 set smarttab
 set softtabstop=4
 set tabstop=4
-set textwidth=100
+set textwidth=80
 
 " Highlight all search matches
 set hlsearch
@@ -97,6 +94,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'majutsushi/tagbar'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'flazz/vim-colorschemes'
 
 " Plugin outside ~/.vim/plugged with post-update hook
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -104,9 +104,16 @@ Plug 'majutsushi/tagbar'
 " Initialize plugin system
 call plug#end()
 
+set t_Co=256
+set background=dark
+colorscheme gruvbox
+syntax on
+
 " For Fzf
 map " :Files<CR>
 map ; :Buffers<CR>
 
+" Toggle NERDTree
+nmap <F7> :NERDTreeToggle<CR>
 " Toggle tagbar
 nmap <F8> :TagbarToggle<CR>
