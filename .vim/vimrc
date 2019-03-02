@@ -64,19 +64,9 @@ nmap <c-k> <c-w>k
 nmap <c-h> <c-w>h
 nmap <c-l> <c-w>l
 
-function TrimWhiteSpace()
-  let l:save = winsaveview()
-  :s/\s\+$//e
-  call winrestview(l:save)
-endfunction
+" Trim whitespace with F12
+:nnoremap <silent> <F12> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
-" This would automatically trim whitespace every time the buffer is written for specific file types
-" autocmd FileType c,python,text autocmd BufWritePre <buffer> :call TrimWhiteSpace()<CR>
-
-noremap <F12> :call TrimWhiteSpace()<CR>
-
-autocmd FileType gitcommit setlocal spell textwidth=72 colorcolumn=73
-autocmd BufNewFile,BufRead *.inc set filetype=sh
 
 " Use F2 to toggle paste mode on and off, with some visual feedback in normal mode
 nnoremap <F2> :set invpaste paste?<CR>
@@ -97,9 +87,6 @@ Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'flazz/vim-colorschemes'
-
-" Plugin outside ~/.vim/plugged with post-update hook
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Initialize plugin system
 call plug#end()
